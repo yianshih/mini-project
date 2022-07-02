@@ -7,7 +7,7 @@ import { Product, ProductType } from "api/products/domain-models-product";
 
 const productFuzzySearch = (text: string) => (product: Product) => {
   const { productName = "" } = product;
-  return productName.includes(text);
+  return productName.toLowerCase().includes(text.toLowerCase());
 };
 
 export const getProducts = async (

@@ -1,11 +1,26 @@
-import ProductList from "pages/products/productList";
+import ProductList from "components/productList";
+import ProductFilters from "pages/products/filters";
+import { useProducts } from "pages/products/store";
 
-const Home: React.FC = () => {
+const Products: React.FC = () => {
+  const {
+    setFilters,
+    products,
+    error,
+    filters: { searchText, productType },
+  } = useProducts();
+
   return (
     <div>
-      <ProductList products={[]} />
+      <ProductFilters
+        onProductTypeChange={(productType) => setFilters({ productType })}
+        onSearchTextChange={(searchText) => setFilters({ searchText })}
+        productType={productType}
+        searchText={searchText}
+      />
+      {error ? <div>{error}</div> : <ProductList products={products} />}
     </div>
   );
 };
 
-export default Home;
+export default Products;
