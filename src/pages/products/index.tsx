@@ -1,6 +1,7 @@
 import ProductList from "components/productList";
 import ProductFilters from "pages/products/filters";
 import { useProducts } from "pages/products/store";
+import { Container } from "./styled";
 
 const Products: React.FC = () => {
   const {
@@ -11,7 +12,7 @@ const Products: React.FC = () => {
   } = useProducts();
 
   return (
-    <div>
+    <Container>
       <ProductFilters
         onProductTypeChange={(productType) => setFilters({ productType })}
         onSearchTextChange={(searchText) => setFilters({ searchText })}
@@ -19,7 +20,7 @@ const Products: React.FC = () => {
         searchText={searchText}
       />
       {error ? <div>{error}</div> : <ProductList products={products} />}
-    </div>
+    </Container>
   );
 };
 
