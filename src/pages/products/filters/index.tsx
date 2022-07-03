@@ -3,7 +3,7 @@ import { getEnumValues } from "utils/index";
 import { useMemo } from "react";
 import { Select, Input } from "antd";
 import { Flex } from "components/Grid";
-import { Container, FilterLabel } from "./styled";
+import { Container, FilterLabel, FilterTypeContainer } from "./styled";
 
 const { Option } = Select;
 
@@ -66,10 +66,10 @@ const ProductFilters: React.FC<IProductFiltersProps> = ({
   return (
     <Container>
       <Flex>{FreeSearch}</Flex>
-      <Flex style={{ justifyContent: "right" }}>
+      <FilterTypeContainer>
         <FilterLabel>Filter by</FilterLabel>
         {TypeFilter}
-      </Flex>
+      </FilterTypeContainer>
     </Container>
   );
 };

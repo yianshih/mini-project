@@ -21,3 +21,8 @@ export const Container = styled(Flex)`
 export const FilterLabel = styled.div`
   margin-right: 10px;
 `;
+
+export const FilterTypeContainer = styled(Flex)`
+  justify-content: flex-end;
+  margin-left: 10px;
+`;
